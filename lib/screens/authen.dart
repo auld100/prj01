@@ -20,6 +20,19 @@ class _AuthenState extends State<Authen> {
     return Image.asset('images/logo1.png');
   }
 
+  Widget showUser() {
+    return TextFormField(
+      decoration: InputDecoration(labelText: "User: ", hintText: "Username"),
+    );
+  }
+
+  Widget showPassword() {
+    return TextFormField(
+      decoration:
+          InputDecoration(labelText: "Password: ", hintText: "Password"),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,6 +49,15 @@ class _AuthenState extends State<Authen> {
                   ),
                   child: showTitle("User Authentication", 28.0),
                 ),
+                Container(
+                  margin: EdgeInsets.only(left: 15, top: 0, right: 15),
+                  child: showUser(),
+                ),
+                Container(
+                  margin: EdgeInsets.only(left: 15, top: 0, right: 15),
+                  child: showPassword(),
+                )
+
                 //showTitle("", 16.0)
               ],
             )));
