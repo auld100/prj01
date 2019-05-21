@@ -22,22 +22,44 @@ class _AuthenState extends State<Authen> {
 
   Widget showUser() {
     return TextFormField(
-      decoration: InputDecoration(labelText: "User: ", hintText: "Username"),
+      decoration: InputDecoration(labelText: "USER: ", hintText: "Username"),
     );
   }
 
   Widget showPassword() {
-    return TextFormField(
+    return TextField(
       decoration:
-          InputDecoration(labelText: "Password: ", hintText: "Password"),
+          InputDecoration(labelText: "PASSWORD: ", hintText: "Password"),
+      obscureText: true,
+    );
+  }
+
+  Widget showSignUp() {
+    return RaisedButton(
+      child: Text("Sign UP"),
+      color: Colors.orangeAccent[100],
+      onPressed: () {},
+    );
+  }
+
+  Widget showSignIn() {
+    return RaisedButton(
+      child: Text("Sign In"),
+      color: Colors.lightGreen[100],
+      onPressed: () {},
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        resizeToAvoidBottomPadding: false,
         body: Container(
-            margin: EdgeInsets.only(top: 70.0),
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    colors: [Colors.tealAccent[100], Colors.white],
+                    begin: Alignment(0, 1))),
+            padding: EdgeInsets.only(top: 70.0),
             alignment: Alignment(0, 0),
             child: Column(
               children: <Widget>[
@@ -56,8 +78,20 @@ class _AuthenState extends State<Authen> {
                 Container(
                   margin: EdgeInsets.only(left: 15, top: 0, right: 15),
                   child: showPassword(),
-                )
-
+                ),
+                Container(
+                    margin: EdgeInsets.only(left: 15, top: 10, right: 15),
+                    alignment: Alignment(0, 0),
+                    child: Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: showSignIn(),
+                        ),
+                        Expanded(
+                          child: showSignUp(),
+                        )
+                      ],
+                    ))
                 //showTitle("", 16.0)
               ],
             )));
